@@ -1,0 +1,10 @@
+services:
+  birthday-chat:
+    image: birthday-chat:latest
+    build: .
+    container_name: birthday-chat
+    env_file: .env
+    ports:
+      - 8000:8000
+    volumes:
+      - ./chat.db:/app/servidor/chat.db
