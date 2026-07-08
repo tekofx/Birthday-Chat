@@ -1,51 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ful-Chat-Men // Acceso Encriptado</title>
-    <link rel="stylesheet" href="/static/css/estilos.css">
-</head>
-<body>
-
-    <div id="pantalla-login">
-        <div class="caja-login">
-            <h2>ACCESO RESTRINGIDO</h2>
-            <input type="text" id="input-codigo" placeholder="Introduce tu código secreto..." autocomplete="off">
-            <button onclick="procesarLogin()">CONECTAR</button>
-            <div id="error-login"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ful-Chat-Men // Acceso Encriptado</title>
+        <link rel="stylesheet" href="/static/css/estilo.css" />
+    </head>
+    <body>
+        <div id="pantalla-login">
+            <div class="caja-login">
+                <h2>ACCESO RESTRINGIDO</h2>
+                <input
+                    type="text"
+                    id="input-codigo"
+                    placeholder="Introduce tu código secreto..."
+                    autocomplete="off"
+                />
+                <button onclick="procesarLogin()">CONECTAR</button>
+                <div id="error-login"></div>
+            </div>
         </div>
-    </div>
 
-    <div id="interfaz-chat">
-        <div class="sidebar">
-            <h3 id="txt-perfil">CANALES</h3>
-            <div class="lista-canales" id="contenedor-canales"></div>
-        </div>
-        <div class="area-principal">
-            <div class="cabecera-canal" id="titulo-canal">Selecciona un canal para empezar</div>
-            <div id="historial" class="historial-mensajes"></div>
-            
-            <div class="contenedor-inferior">
-                <div id="barra-reply" class="barra-respuesta-activa">
-                    <div id="txt-reply-info">Respondiendo a...</div>
-                    <button class="btn-cancelar-respuesta" onclick="cancelarRespuesta()">✕ Cancelar</button>
+        <div id="interfaz-chat">
+            <div class="sidebar">
+                <h3 id="txt-perfil">CANALES</h3>
+                <div class="lista-canales" id="contenedor-canales"></div>
+            </div>
+            <div class="area-principal">
+                <div class="cabecera-canal" id="titulo-canal">
+                    Selecciona un canal para empezar
                 </div>
-                
-                <div id="box-autocomplete" class="menu-autocomplete"></div>
+                <div id="historial" class="historial-mensajes"></div>
 
-                <div class="area-input">
-                    <input type="file" id="selector-archivos" style="display: none;" onchange="subirYEnviarArchivo()">
-                    <button id="btn-clip" class="btn-adjuntar" onclick="document.getElementById('selector-archivos').click()" disabled>📎</button>
-                    
-                    <input type="text" id="input-mensaje" placeholder="Escribe un mensaje aquí..." oninput="manejarFiltroAutocomplete(this)" onkeydown="manejarTeclasAutocomplete(event)" disabled autocomplete="off">
-                    
-                    <button id="btn-enviar" class="btn-enviar" onclick="enviarMensaje()" disabled>Enviar</button>
+                <div class="contenedor-inferior">
+                    <div id="barra-reply" class="barra-respuesta-activa">
+                        <div id="txt-reply-info">Respondiendo a...</div>
+                        <button
+                            class="btn-cancelar-respuesta"
+                            onclick="cancelarRespuesta()"
+                        >
+                            ✕ Cancelar
+                        </button>
+                    </div>
+
+                    <div id="box-autocomplete" class="menu-autocomplete"></div>
+
+                    <div class="area-input">
+                        <input
+                            type="file"
+                            id="selector-archivos"
+                            style="display: none"
+                            onchange="subirYEnviarArchivo()"
+                        />
+                        <button
+                            id="btn-clip"
+                            class="btn-adjuntar"
+                            onclick="
+                                document
+                                    .getElementById('selector-archivos')
+                                    .click()
+                            "
+                            disabled
+                        >
+                            📎
+                        </button>
+
+                        <input
+                            type="text"
+                            id="input-mensaje"
+                            placeholder="Escribe un mensaje aquí..."
+                            oninput="manejarFiltroAutocomplete(this)"
+                            onkeydown="manejarTeclasAutocomplete(event)"
+                            disabled
+                            autocomplete="off"
+                        />
+
+                        <button
+                            id="btn-enviar"
+                            class="btn-enviar"
+                            onclick="enviarMensaje()"
+                            disabled
+                        >
+                            Enviar
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="/static/js/chat.js"></script>
-</body>
+        <script src="/static/js/chat.js"></script>
+    </body>
 </html>
